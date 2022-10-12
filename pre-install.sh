@@ -2,7 +2,7 @@
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install software-properties-common -y
+apt-get install software-properties-common git -y
 add-apt-repository ppa:deadsnakes/ppa
 apt install python3.6 -y
 apt install python3-virtualenv -y
