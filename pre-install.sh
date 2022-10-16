@@ -19,5 +19,5 @@ dpkg-reconfigure --frontend noninteractive tzdata
 # apt-get install virtualenv python3-pip
 # useradd modoboa  # create a dedicated user
 # su -l modoboa    # log in as the newly created user
-$ virtualenv --python python3 ./env  # create the virtual environment
-$ source ./env/bin/activate          # activate the virtual environment
+#virtualenv --python python3 ./env  # create the virtual environment
+#source ./env/bin/activate          # activate the virtual environment
