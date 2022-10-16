@@ -11,4 +11,5 @@ rm -rf ./modoboa-installer
 git clone https://github.com/modoboa/modoboa-installer
 cp installer.cfg modoboa-installer/
 mkdir -p /etc/cron.d/
-
+echo "Etc/UTC" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
