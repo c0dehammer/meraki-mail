@@ -9,5 +9,6 @@ apt install python3-pip -y
 apt install python3-virtualenv -y
 rm -rf ./modoboa-installer
 git clone https://github.com/modoboa/modoboa-installer
+cp installer.cfg modoboa-installer/
 mkdir -p /etc/cron.d/
 
