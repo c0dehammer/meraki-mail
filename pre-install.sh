@@ -1,4 +1,5 @@
 #!/bin/bash
+export DEBIAN_FRONTEND=noninteractive
 
 apt-get update -y
 apt-get upgrade -y
@@ -12,4 +13,5 @@ git clone https://github.com/modoboa/modoboa-installer
 cp installer.cfg modoboa-installer/
 mkdir -p /etc/cron.d/
 echo "Etc/UTC" > /etc/timezone
-dpkg-reconfigure -f noninteractive tzdata
+apt-get install -y tzdata
+dpkg-reconfigure --frontend noninteractive tzdata
