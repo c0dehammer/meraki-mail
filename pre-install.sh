@@ -16,6 +16,8 @@ echo "Etc/UTC" > /etc/timezone
 apt-get install -y tzdata
 dpkg-reconfigure --frontend noninteractive tzdata
 
+echo "127.0.0.1 database" >> /etc/hosts
+
 # apt-get install virtualenv python3-pip
 # useradd modoboa  # create a dedicated user
 # su -l modoboa    # log in as the newly created user
