@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  meraki-dkim:
+  meraki-vmail:
+  meraki-psql:
+  meraki-ssl:
+
+services:
+  modoboa:
+    image: meraki/mail:full
+    pull_policy: never
+    container_name: mail-modoboa
+    hostname: mail
+    domainname: mail.merakisystems.com
+    restart: on-failure
+    environment:
+      TZ: utc
+    volumes:
+      - meraki-dkim:/var/lib/dkim
+      - meraki-vmail:/srv/vmail
+      - meraki-psql:/var/lib/postgresql/14/main
+      - meraki-ssl:/etc/ssl/
+    #network_mode: "host"
+
+    ports:
+      - 80:80
+      - 443:443
+      - 25:25
+      - 587:587
+      - 143:143
