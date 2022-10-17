@@ -8,7 +8,7 @@ add-apt-repository ppa:deadsnakes/ppa
 apt install python3 -y
 apt install python3-pip -y
 apt install python3-virtualenv -y
-apt install postgresql postgresql-contrib
+apt install postgresql postgresql-contrib -y
 rm -rf ./modoboa-installer
 git clone https://github.com/modoboa/modoboa-installer
 cp installer.cfg modoboa-installer/
