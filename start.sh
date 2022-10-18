@@ -7,11 +7,23 @@
 #domain=$(expr match "$domain" '.*\.\(.*\..*\)')
 #sed -i "s/server_name autoconfig.localhost/server_name autoconfig.${domain}/g" /etc/nginx/sites-enabled/autoconfig.localhost.conf
 
-services=("cron" "nginx" "postgresql ""uwsgi" "dovecot" "postfix" "amavis" "opendkim" "clamav-daemon")
+CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
+if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
+    touch /$CONTAINER_FIRST_STARTUP
+    # place your script that you only want to run on first startup.
+    modoboa_installer/run.py --debug --force ${DOMAIN}
+else
+    # script that should run the rest of the times (instances where you 
+    # stop/restart containers).
+    services=("cron" "nginx" "postgresql ""uwsgi" "dovecot" "postfix" "amavis" "opendkim" "clamav-daemon")
 
-for service in ${services[@]}; do
-service ${service} start
-done
+    for service in ${services[@]}; do
+      service ${service} start
+    done
 
-tail -f /dev/null
+    tail -f /dev/null
+fi
+
+
+
 
