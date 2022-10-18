@@ -10,7 +10,7 @@ add-apt-repository ppa:deadsnakes/ppa
 apt install python3 -y
 apt install python3-pip -y
 apt install python3-virtualenv -y
-apt install nano -y
+apt install nano curl iputils-ping -y
 
 # the normal postgres install script within run.py doesnt seem to work sometimes
 apt install postgresql postgresql-contrib -y
