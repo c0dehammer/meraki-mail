@@ -9,7 +9,7 @@ volumes:
 services:
   modoboa:
     build: .
-    #image: meraki/modoboa
+    image: meraki/modoboa
     #pull_policy: never
     container_name: mail-modoboa
     hostname: mail
