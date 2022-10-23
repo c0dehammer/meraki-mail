@@ -1,4 +1,4 @@
-# meraki-mail
+meraki-mail
 
 add the following to the host 
 
