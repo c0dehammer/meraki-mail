@@ -15,7 +15,7 @@ services:
     container_name: mail-modoboa
     hostname: mail
     domainname: merakisystems.com
-    restart: on-failure
+    restart: unless-stopped
     environment:
       TZ: utc
     volumes:
