@@ -1,4 +1,6 @@
-meraki-mail
+MOdoboa based email server 
+
+just run the compose file on portainer, and restart after first run. 
 
 add the following to the host 
 
