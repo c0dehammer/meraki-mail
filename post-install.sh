@@ -11,3 +11,5 @@ sed -i '0,/postscreen_pipelining_enable = yes/ s/postscreen_pipelining_enable = 
 sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/settings.py
 # caldav issue https://github.com/modoboa/modoboa/issues/2571#issuecomment-1210003862
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
+# emails not being sent or received
+sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
