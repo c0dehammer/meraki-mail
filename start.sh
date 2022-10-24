@@ -12,7 +12,7 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     touch /$CONTAINER_FIRST_STARTUP
     # place your script that you only want to run on first startup.
     # modoboa-installer/run.py --debug --force merakisystems.com
-    echo "starting post install"
+    echo "starting post kk install"
     cd /installer
     ./post-install.sh
     echo "finished post install"
