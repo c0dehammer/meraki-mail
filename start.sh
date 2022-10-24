@@ -16,7 +16,7 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
 else
     # script that should run the rest of the times (instances where you 
     # stop/restart containers).
-    services=("cron" "supervisor" "postgresql" "nginx" "uwsgi" "dovecot" "postfix" "amavis" "opendkim" "clamav-daemon")
+    services=("cron" "syslog-ng" "supervisor" "postgresql" "nginx" "uwsgi" "dovecot" "postfix" "amavis" "opendkim" "clamav-daemon")
 
     for service in ${services[@]}; do
       service ${service} start
