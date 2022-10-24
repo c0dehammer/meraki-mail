@@ -15,3 +15,4 @@ sed -i 's/username=username, password=password)/username=username, password=pass
 sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
 # manage.py not working
 export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
+echo "** post-install.sh has finished running..."
