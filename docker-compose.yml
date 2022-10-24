@@ -6,6 +6,7 @@ volumes:
   meraki-vmail:
   meraki-psql:
   meraki-ssl:
+  meraki-letsencrypt:
 
 services:
   modoboa:
