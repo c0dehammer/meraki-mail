@@ -13,3 +13,5 @@ sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
 # emails not being sent or received
 sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
+# manage.py not working
+export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
