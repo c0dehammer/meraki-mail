@@ -23,6 +23,7 @@ services:
       - meraki-vmail:/srv/vmail
       - meraki-psql:/var/lib/postgresql/14/main
       - meraki-ssl:/etc/ssl/
+      - meraki-letsencrypt:/etc/letsencrypt/
     #network_mode: "host"
 
     ports:
