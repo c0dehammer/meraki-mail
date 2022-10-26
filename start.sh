@@ -14,8 +14,6 @@ sed 's/^::1/# &/g' /etc/hosts > /etc/hosts.updated
 cat /etc/hosts.updated > /etc/hosts
 rm /etc/hosts.updated
 
-export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
-export PYTHON_VERSION="python"$PYTHON_VERSION
 
 
 
@@ -29,15 +27,12 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     cd /installer
     ./post-install.sh
     echo "finished post install"
+
+    
 else
     # script that should run the rest of the times (instances where you 
     # stop/restart containers).
-        
-    # fix manage.py not working
-    #  adding path
-    export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
-    
-    
+
     #starting services which would have typically been started via systemctl
 
     services=("cron" "syslog-ng" "supervisor" "postgresql" "nginx" "uwsgi" "dovecot" "postfix" "redis-server" "amavis" "opendkim" "clamav-daemon")
