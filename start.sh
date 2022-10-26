@@ -15,9 +15,6 @@ cat /etc/hosts.updated > /etc/hosts
 rm /etc/hosts.updated
 
 
-
-
-
 CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
 if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     touch /$CONTAINER_FIRST_STARTUP
@@ -34,9 +31,7 @@ else
     # stop/restart containers).
 
     #starting services which would have typically been started via systemctl
-
     services=("cron" "syslog-ng" "supervisor" "postgresql" "nginx" "uwsgi" "dovecot" "postfix" "redis-server" "amavis" "opendkim" "clamav-daemon")
-
     for service in ${services[@]}; do
       service ${service} start
     done
