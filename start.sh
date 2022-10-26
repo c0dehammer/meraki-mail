@@ -8,7 +8,8 @@
 #sed -i "s/server_name autoconfig.localhost/server_name autoconfig.${domain}/g" /etc/nginx/sites-enabled/autoconfig.localhost.conf
 
 # disable ipv6 loop back. if not in place, policy deamon does not start.
-sed -i 's/^::1/# &/g' /etc/hosts
+sed -i 's/^::1/# &/g' /etc/hosts >> /etc/hosts.updated
+cp /etc/hosts.updated /etc/hosts
 
 export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
 export PYTHON_VERSION="python"$PYTHON_VERSION
