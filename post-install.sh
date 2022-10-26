@@ -22,11 +22,7 @@ sed -i 's/env python/env python3/' /srv/modoboa/instance/manage.py
 
 # emails not being sent or received
 #  this was due to policy service not starting. either remove the dependency of policy service from postfix, such as below. 
-sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
-#  or remove ipv6 references which prevent policy service from starting
-sed -i 's/\::1/# else policy service does not start ::1/' /etc/hosts
-#  and start the service in start.sh
-
+# sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
 
 
 echo "** post-install.sh has finished running..."
