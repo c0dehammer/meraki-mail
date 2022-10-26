@@ -7,6 +7,13 @@
 #domain=$(expr match "$domain" '.*\.\(.*\..*\)')
 #sed -i "s/server_name autoconfig.localhost/server_name autoconfig.${domain}/g" /etc/nginx/sites-enabled/autoconfig.localhost.conf
 
+
+export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
+export PYTHON_VERSION="python"$PYTHON_VERSION
+
+
+
+
 CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
 if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     touch /$CONTAINER_FIRST_STARTUP
@@ -19,6 +26,13 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
 else
     # script that should run the rest of the times (instances where you 
     # stop/restart containers).
+        
+    # manage.py not working
+    #  adding path
+    export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
+    
+    #starting services which would have typically been started via systemctl
+
     services=("cron" "syslog-ng" "supervisor" "postgresql" "nginx" "uwsgi" "dovecot" "postfix" "redis-server" "amavis" "opendkim" "clamav-daemon")
 
     for service in ${services[@]}; do
