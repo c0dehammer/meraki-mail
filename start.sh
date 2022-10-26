@@ -27,9 +27,12 @@ else
     # script that should run the rest of the times (instances where you 
     # stop/restart containers).
         
-    # manage.py not working
+    # fix manage.py not working
     #  adding path
     export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
+    
+    # starting policy daemon. else we need to disable main.cf 9999 referenced service
+    /srv/modoboa/instance/manage.py policy_daemon
     
     #starting services which would have typically been started via systemctl
 
