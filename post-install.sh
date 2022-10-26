@@ -2,6 +2,9 @@
 
 export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
 export PYTHON_VERSION="python"$PYTHON_VERSION
+# manage.py not working
+#  adding path
+export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
 
 sed -i '0,/pidfile=/ s/pidfile=/pidfile=\$PIDFILE/' /etc/init.d/opendkim
 sed -i '0,/dnsbl.sorbs.net/ s/dnsbl.sorbs.net/#dnsbl.sorbs.net/' /etc/postfix/main.cf
@@ -13,9 +16,6 @@ sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/
 # caldav issue https://github.com/modoboa/modoboa/issues/2571#issuecomment-1210003862
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
 
-# manage.py not working
-#  adding path
-export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
 #  changing interpreter to python3 
 sed -i 's/env python/env python3/' /srv/modoboa/instance/manage.py
 
