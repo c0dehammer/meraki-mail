@@ -8,8 +8,11 @@
 #sed -i "s/server_name autoconfig.localhost/server_name autoconfig.${domain}/g" /etc/nginx/sites-enabled/autoconfig.localhost.conf
 
 # disable ipv6 loop back. if not in place, policy deamon does not start.
-sed -i 's/^::1/# &/g' /etc/hosts >> /etc/hosts.updated
-cp /etc/hosts.updated /etc/hosts
+#ipv6 issue 
+# https://github.com/moby/moby/issues/35954#issuecomment-498449486
+sed 's/^::1/# &/g' /etc/hosts > /etc/hosts.updated
+cat /etc/hosts.updated > /etc/hosts
+rm /etc/hosts.updated
 
 export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
 export PYTHON_VERSION="python"$PYTHON_VERSION
@@ -34,8 +37,6 @@ else
     #  adding path
     export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
     
-    # starting policy daemon. else we need to disable main.cf 9999 referenced service
-    /srv/modoboa/instance/manage.py policy_daemon
     
     #starting services which would have typically been started via systemctl
 
