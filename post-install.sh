@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
-PYTHON_VERSION="python"$PYTHON_VERSION
+export PYTHON_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
+export PYTHON_VERSION="python"$PYTHON_VERSION
 
 sed -i '0,/pidfile=/ s/pidfile=/pidfile=\$PIDFILE/' /etc/init.d/opendkim
 sed -i '0,/dnsbl.sorbs.net/ s/dnsbl.sorbs.net/#dnsbl.sorbs.net/' /etc/postfix/main.cf
@@ -15,4 +15,6 @@ sed -i 's/username=username, password=password)/username=username, password=pass
 sed -i 's/check_policy_service/# check_policy_service/' /etc/postfix/main.cf
 # manage.py not working
 export PYTHONPATH=/srv/modoboa/env/lib/$PYTHON_VERSION/site-packages
+
+sed -i 's/env python/env python3/' /srv/modoboa/instance/manage.py
 echo "** post-install.sh has finished running..."
