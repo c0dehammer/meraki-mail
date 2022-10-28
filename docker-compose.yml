@@ -27,7 +27,7 @@ services:
       - meraki-psql:/var/lib/postgresql/14/main
       - meraki-ssl:/etc/ssl/
       - meraki-letsencrypt:/etc/letsencrypt/
-      - meraki-radicale-collections:/srv/radicale/collections
+      - meraki-radicale-collections:/srv/radicale/collections/
       - meraki-radicale-rights:/etc/radicale/
     #network_mode: "host"
 
