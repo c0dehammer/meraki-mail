@@ -28,7 +28,7 @@ services:
       - meraki-ssl:/etc/ssl/
       - meraki-letsencrypt:/etc/letsencrypt/
       - meraki-radicale-collections:/srv/radicale/collections
-      - meraki-radicale-rights:/etc/radicale/rights
+      - meraki-radicale-rights:/etc/radicale/
     #network_mode: "host"
 
     ports:
