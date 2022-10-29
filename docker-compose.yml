@@ -2,13 +2,13 @@ version: '3'
 #set outgoing IP address, if hosted on a multi ip host
 #sudo iptables -t nat -I POSTROUTING -p all -s 172.31.0.0/16 -j SNAT --to -source xxx.xxx.xxx.xxx
 volumes:
-  meraki-dkim:
-  meraki-vmail:
-  meraki-psql:
-  meraki-ssl:
-  meraki-letsencrypt:
-  meraki-radicale-collections:
-  meraki-radicale-rights:
+  ${HOST}-dkim:
+  ${HOST}-vmail:
+  ${HOST}-psql:
+  ${HOST}-ssl:
+  ${HOST}-letsencrypt:
+  ${HOST}-radicale-collections:
+  ${HOST}-radicale-rights:
 
 services:
   modoboa:
@@ -17,18 +17,18 @@ services:
     #pull_policy: never
     container_name: mail-modoboa
     hostname: mail
-    domainname: merakisystems.com
+    domainname: ${HOST}
     restart: unless-stopped
     environment:
       TZ: utc
     volumes:
-      - meraki-dkim:/var/lib/dkim
-      - meraki-vmail:/srv/vmail
-      - meraki-psql:/var/lib/postgresql/14/main
-      - meraki-ssl:/etc/ssl/
-      - meraki-letsencrypt:/etc/letsencrypt/
-      - meraki-radicale-collections:/srv/radicale/
-      - meraki-radicale-rights:/etc/radicale/
+      - ${HOST}-dkim:/var/lib/dkim
+      - ${HOST}-vmail:/srv/vmail
+      - ${HOST}-psql:/var/lib/postgresql/14/main
+      - ${HOST}-ssl:/etc/ssl/
+      - ${HOST}-letsencrypt:/etc/letsencrypt/
+      - ${HOST}-radicale-collections:/srv/radicale/
+      - ${HOST}-radicale-rights:/etc/radicale/
     #network_mode: "host"
 
     ports:
