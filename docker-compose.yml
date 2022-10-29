@@ -2,7 +2,7 @@ version: '3'
 #set outgoing IP address, if hosted on a multi ip host
 #sudo iptables -t nat -I POSTROUTING -p all -s 172.31.0.0/16 -j SNAT --to -source xxx.xxx.xxx.xxx
 volumes:
-  ${HOST}-dkim:
+  ${HOSTa}-dkim:
   modoboa-vmail:
   modoboa-psql:
   modoboa-ssl:
