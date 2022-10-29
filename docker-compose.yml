@@ -2,7 +2,7 @@ version: '3'
 #set outgoing IP address, if hosted on a multi ip host
 #sudo iptables -t nat -I POSTROUTING -p all -s 172.31.0.0/16 -j SNAT --to -source xxx.xxx.xxx.xxx
 volumes:
-  ${HOSTa}-dkim:
+  modoboa-dkim:
   modoboa-vmail:
   modoboa-psql:
   modoboa-ssl:
@@ -22,13 +22,13 @@ services:
     environment:
       TZ: utc
     volumes:
-      - ${HOST}-dkim:/var/lib/dkim
-      - ${HOST}-vmail:/srv/vmail
-      - ${HOST}-psql:/var/lib/postgresql/14/main
-      - ${HOST}-ssl:/etc/ssl/
-      - ${HOST}-letsencrypt:/etc/letsencrypt/
-      - ${HOST}-radicale-collections:/srv/radicale/
-      - ${HOST}-radicale-rights:/etc/radicale/
+      - modoboa-dkim:/var/lib/dkim
+      - modoboa-vmail:/srv/vmail
+      - modoboa-psql:/var/lib/postgresql/14/main
+      - modoboa-ssl:/etc/ssl/
+      - modoboa-letsencrypt:/etc/letsencrypt/
+      - modoboa-radicale-collections:/srv/radicale/
+      - modoboa-radicale-rights:/etc/radicale/
     #network_mode: "host"
 
     ports:
