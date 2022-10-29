@@ -7,7 +7,7 @@ volumes:
   meraki-psql:
   meraki-ssl:
   meraki-letsencrypt:
-#  meraki-radicale-collections:
+  meraki-radicale-collections:
   meraki-radicale-rights:
 
 services:
@@ -27,7 +27,7 @@ services:
       - meraki-psql:/var/lib/postgresql/14/main
       - meraki-ssl:/etc/ssl/
       - meraki-letsencrypt:/etc/letsencrypt/
-#      - meraki-radicale-collections:/srv/radicale/collections/
+      - meraki-radicale-collections:/srv/radicale/collections/collection-root/
       - meraki-radicale-rights:/etc/radicale/
     #network_mode: "host"
 
@@ -37,6 +37,7 @@ services:
       - 25:25
       - 587:587
       - 143:143
+      - 19999:19999
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1
     
