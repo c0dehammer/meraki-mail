@@ -16,14 +16,14 @@ apt install nano curl iputils-ping -y
 apt install syslog-ng -y
 
 # the normal postgres install script within run.py doesnt seem to work sometimes
-#apt install postgresql postgresql-contrib -y
+apt install postgresql postgresql-contrib -y
 
 # get fresh modoboa installer from official repo
 rm -rf ./modoboa-installer
 git clone https://github.com/modoboa/modoboa-installer
 
-# copy our standard config requirements
-cp installer.cfg modoboa-installer/
+# copy our standard config requirements. we dont need to do this because of the sed functions implemented
+#cp installer.cfg modoboa-installer/
 
 # virtual systems without systemd etc needs a cron job to be added
 mkdir -p /etc/cron.d/
