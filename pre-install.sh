@@ -16,7 +16,7 @@ apt install nano curl iputils-ping -y
 apt install syslog-ng -y
 
 # the normal postgres install script within run.py doesnt seem to work sometimes
-apt install postgresql postgresql-contrib -y
+#apt install postgresql postgresql-contrib -y
 
 # get fresh modoboa installer from official repo
 rm -rf ./modoboa-installer
