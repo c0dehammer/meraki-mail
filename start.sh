@@ -28,8 +28,8 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     echo "Pre Install Done, Starting Installer"
     # generate config file
     cd modoboa-installer
-    # for fresh with better security uncheck the following line. for easy recovery, keep checked
-    #./run.py --stop-after-configfile-check ${DOMAIN}
+    
+    ./run.py --stop-after-configfile-check ${DOMAIN}
     # change with env variables from docker compose
     sed -i 's/type = self-signed/type = letsencrypt/g' installer.cfg
     sed -i 's/email = admin@example.com/email = $CERTMAIL/g' installer.cfg
