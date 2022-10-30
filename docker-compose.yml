@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
     environment:
       TZ: utc
-      HOST: ${HOST}
+      DOMAIN: ${DOMAIN}
     volumes:
       - dkim:/var/lib/dkim
       - vmail:/srv/vmail
