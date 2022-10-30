@@ -15,7 +15,7 @@ services:
   modoboa:
     image: meraki/${DOMAIN}-mail
     build: .
-    #pull_policy: never
+    pull_policy: never
     container_name: ${DOMAIN}-mail-modoboa
     hostname: mail
     domainname: ${DOMAIN}
