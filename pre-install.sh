@@ -6,17 +6,17 @@ apt-get upgrade -y
 apt-get install software-properties-common git -y
 
 # for backward compatibility on python versions
-add-apt-repository ppa:deadsnakes/ppa
-apt install python3 -y
-apt install python3-pip -y
-apt install python3-virtualenv -y
-apt install nano curl iputils-ping -y
+#add-apt-repository ppa:deadsnakes/ppa
+#apt install python3 -y
+#apt install python3-pip -y
+#apt install python3-virtualenv -y
+#apt install nano curl iputils-ping -y
 
 # /var/log/mail.log depends on a syslog daemon. docker ubuntu does not have the ability to run rsyslog due to lack of systemctl. so we need to install syslog-ng. 
-apt install syslog-ng -y
+#apt install syslog-ng -y
 
 # the normal postgres install script within run.py doesnt seem to work sometimes
-apt install postgresql postgresql-contrib -y
+#apt install postgresql postgresql-contrib -y
 
 # get fresh modoboa installer from official repo
 rm -rf ./modoboa-installer
