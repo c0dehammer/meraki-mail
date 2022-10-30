@@ -13,6 +13,23 @@ sed -i '0,/postscreen_non_smtp_command_enable = yes/ s/postscreen_non_smtp_comma
 sed -i '0,/postscreen_pipelining_enable = yes/ s/postscreen_pipelining_enable = yes/postscreen_pipelining_enable = no/' /etc/postfix/main.cf
 sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/settings.py
 
+
+#      - dkim:/var/lib/dkim
+#      - vmail:/srv/vmail
+#      - psql:/var/lib/postgresql/14/main
+#      - ssl:/etc/ssl/
+#      - letsencrypt:/etc/letsencrypt/
+#      - radicale-collections:/srv/radicale/
+#      - radicale-rights:/etc/radicale/
+
+chown -R opendkim:opendkim /var/lib/dkim
+chown -R vmail:vmail /srv/vmail
+chown -R postgres:postgres /var/lib/postgresql
+chown -R root:root /etc/ssl
+chown -R letsencrypt:letsencrypt /etc/letsencrypt
+chown -R radicale:radicale /srv/radicale
+chown -R radicale:radicale /etc/radicale
+
 # caldav issue https://github.com/modoboa/modoboa/issues/2571#issuecomment-1210003862
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
 
