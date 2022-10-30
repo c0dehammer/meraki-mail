@@ -25,7 +25,7 @@ sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/
 chown -R opendkim:opendkim /var/lib/dkim
 chown -R vmail:vmail /srv/vmail
 chown -R postgres:postgres /var/lib/postgresql
-chown -R root:root /etc/ssl
+chown -R root:ssl-cert /etc/ssl
 chown -R root:root /etc/letsencrypt
 chown -R radicale:radicale /srv/radicale
 chown -R radicale:radicale /etc/radicale
