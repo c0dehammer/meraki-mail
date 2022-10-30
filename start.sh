@@ -20,7 +20,7 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     touch /$CONTAINER_FIRST_STARTUP
     #place your script that you only want to run on first startup.
     # modoboa-installer/run.py --debug --force ${DOMAIN}
-    echo "we are at MAIL."${DOMAIN}
+    echo "we are at MAIL."${DOMAIN}". located at timezone "${TIMEZONE}
     echo "starting post install"
     cd /installer
     ./post-install.sh
