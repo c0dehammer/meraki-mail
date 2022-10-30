@@ -13,7 +13,7 @@ volumes:
 
 services:
   modoboa:
-    image: meraki/mail-modoboa
+    image: meraki/${DOMAIN}-mail
     build: .
     pull_policy: never
     container_name: ${DOMAIN}-mail-modoboa
@@ -24,6 +24,7 @@ services:
       TZ: utc
       DOMAIN: ${DOMAIN}
       TIMEZONE: ${TIMEZONE}
+      CERTMAIL: ${CERTMAIL}
     volumes:
       - dkim:/var/lib/dkim
       - vmail:/srv/vmail
