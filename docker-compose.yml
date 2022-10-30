@@ -1,7 +1,7 @@
 version: '3'
 #set outgoing IP address, if hosted on a multi ip host
 #sudo iptables -t nat -I POSTROUTING -p all -s 172.31.0.0/16 -j SNAT --to -source xxx.xxx.xxx.xxx
-name: ${HOST}-mail
+name: ${DOMAIN}-mail
 volumes:
   dkim:
   vmail:
@@ -16,9 +16,9 @@ services:
     #image: meraki/modoboa
     build: .
     #pull_policy: never
-    container_name: ${HOST}-mail-modoboa
+    container_name: ${DOMAIN}-mail-modoboa
     hostname: mail
-    domainname: ${HOST}
+    domainname: ${DOMAIN}
     restart: unless-stopped
     environment:
       TZ: utc
