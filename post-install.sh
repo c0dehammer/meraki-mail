@@ -16,8 +16,8 @@ sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/
 # caldav issue https://github.com/modoboa/modoboa/issues/2571#issuecomment-1210003862
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
 
-#  changing interpreter to python3 
-sed -i 's/env python/env python3/' /srv/modoboa/instance/manage.py
+#  changing interpreter to python3 . dont think this is required
+# sed -i 's/env python/env python3/' /srv/modoboa/instance/manage.py
 
 
 # emails not being sent or received
