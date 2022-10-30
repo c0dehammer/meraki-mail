@@ -23,6 +23,9 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     echo "** we are at MAIL."${DOMAIN}
     echo "** located at timezone "${TIMEZONE}
     echo "** with cert email "${CERTMAIL}
+    echo "Starting Pre Install..."
+    ./pre-install.sh
+    echo "Pre Install Done, Starting Installer"
     # generate config file
     modoboa-installer/run.py --stop-after-configfile-check ${DOMAIN}
     # change with env variables from docker compose
