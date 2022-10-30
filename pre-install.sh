@@ -6,10 +6,10 @@ apt-get upgrade -y
 apt-get install software-properties-common git -y
 
 # for backward compatibility on python versions
-add-apt-repository ppa:deadsnakes/ppa
-apt install python3 -y
-apt install python3-pip -y
-apt install python3-virtualenv -y
+##add-apt-repository ppa:deadsnakes/ppa
+##apt install python3 -y
+##apt install python3-pip -y
+##apt install python3-virtualenv -y
 apt install nano curl iputils-ping -y
 
 # /var/log/mail.log depends on a syslog daemon. docker ubuntu does not have the ability to run rsyslog due to lack of systemctl. so we need to install syslog-ng. 
