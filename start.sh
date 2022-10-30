@@ -32,7 +32,7 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     ./run.py --stop-after-configfile-check ${DOMAIN}
     # change with env variables from docker compose
     sed -i 's/type = self-signed/type = letsencrypt/g' installer.cfg
-    sed -i "s/email = admin@example.com/email = $CERTMAIL/g" installer.cfg
+    sed -i "s/email = .*/email = $CERTMAIL/g" installer.cfg
     #https://stackoverflow.com/questions/9366816/sed-fails-with-unknown-option-to-s-error
     sed -i "s@timezone = .*@timezone = $TIMEZONE@g" installer.cfg
     #run install
