@@ -23,7 +23,8 @@ rm -rf ./modoboa-installer
 git clone https://github.com/modoboa/modoboa-installer
 
 # copy our standard config requirements. we dont need to do this because of the sed functions implemented
-#cp installer.cfg modoboa-installer/
+# if we dont keep the same creds, recovery is going to be harder
+cp installer.cfg modoboa-installer/
 
 # virtual systems without systemd etc needs a cron job to be added
 mkdir -p /etc/cron.d/
