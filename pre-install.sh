@@ -24,6 +24,7 @@ git clone https://github.com/modoboa/modoboa-installer
 
 # copy our standard config requirements. we dont need to do this because of the sed functions implemented
 # if we dont keep the same creds, recovery is going to be harder
+# for fresh with better security check the following line. for easy recovery, uncheck
 cp installer.cfg modoboa-installer/
 
 # virtual systems without systemd etc needs a cron job to be added
