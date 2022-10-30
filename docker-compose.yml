@@ -23,6 +23,7 @@ services:
     environment:
       TZ: utc
       DOMAIN: ${DOMAIN}
+      TIMEZONE: ${TIMEZONE}
     volumes:
       - dkim:/var/lib/dkim
       - vmail:/srv/vmail
