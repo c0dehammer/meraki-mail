@@ -22,13 +22,13 @@ sed -i '0,/mail.localhost/ s/mail.localhost/\*/' /srv/modoboa/instance/instance/
 #      - radicale-collections:/srv/radicale/
 #      - radicale-rights:/etc/radicale/
 
-chown -R opendkim:opendkim /var/lib/dkim
-chown -R vmail:vmail /srv/vmail
-chown -R postgres:postgres /var/lib/postgresql
-chown -R root:ssl-cert /etc/ssl
-chown -R root:root /etc/letsencrypt
-chown -R radicale:radicale /srv/radicale
-chown -R radicale:radicale /etc/radicale
+#chown -R opendkim:opendkim /var/lib/dkim
+#chown -R vmail:vmail /srv/vmail
+#chown -R postgres:postgres /var/lib/postgresql
+#chown -R root:ssl-cert /etc/ssl
+#chown -R root:root /etc/letsencrypt
+#chown -R radicale:radicale /srv/radicale
+#chown -R radicale:radicale /etc/radicale
 
 # caldav issue https://github.com/modoboa/modoboa/issues/2571#issuecomment-1210003862
 sed -i 's/username=username, password=password)/username=username, password=password, ssl_verify_cert=False)/' /srv/modoboa/env/lib/$PYTHON_VERSION/site-packages/modoboa_radicale/backends/caldav_.py
