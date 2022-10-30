@@ -29,7 +29,7 @@ cp installer.cfg modoboa-installer/
 mkdir -p /etc/cron.d/
 
 # time zone section to be done at this stage, else it will create a popup for user input, breaking the Dockerfile image compilation 
-echo "Etc/UTC" > /etc/timezone
+echo ${TIMEZONE} > /etc/timezone
 apt-get install -y tzdata
 dpkg-reconfigure --frontend noninteractive tzdata
 
