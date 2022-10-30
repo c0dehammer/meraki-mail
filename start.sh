@@ -19,10 +19,21 @@ CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
 if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     touch /$CONTAINER_FIRST_STARTUP
     #place your script that you only want to run on first startup.
-    modoboa-installer/run.py --debug --force ${DOMAIN}
+    # show env variables 
     echo "** we are at MAIL."${DOMAIN}
     echo "** located at timezone "${TIMEZONE}
     echo "** with cert email "${CERTMAIL}
+    # generate config file
+    modoboa-installer/run.py --stop-after-configfile-check ${DOMAIN}
+    # change with env variables from docker compose
+    sed -i 's/type = self-signed/type = letsencrypt/g' modoboa-installer/installer.cfg
+    sed -i 's/email = admin@example.com/email = ${CERTMAIL}/g' modoboa-installer/installer.cfg
+    #https://stackoverflow.com/questions/9366816/sed-fails-with-unknown-option-to-s-error
+    sed -i "s@timezone = .*@timezone = $TIMEZONE@g" modoboa-installer/installer.cfg
+    #run install
+    modoboa-installer/run.py --debug --force ${DOMAIN}
+   
+
     echo "starting post install"
     cd /installer
     ./post-install.sh
