@@ -27,7 +27,7 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
     modoboa-installer/run.py --stop-after-configfile-check ${DOMAIN}
     # change with env variables from docker compose
     sed -i 's/type = self-signed/type = letsencrypt/g' modoboa-installer/installer.cfg
-    sed -i 's/email = admin@example.com/email = ${CERTMAIL}/g' modoboa-installer/installer.cfg
+    sed -i 's/email = admin@example.com/email = $CERTMAIL/g' modoboa-installer/installer.cfg
     #https://stackoverflow.com/questions/9366816/sed-fails-with-unknown-option-to-s-error
     sed -i "s@timezone = .*@timezone = $TIMEZONE@g" modoboa-installer/installer.cfg
     #run install
