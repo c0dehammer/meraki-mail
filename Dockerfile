@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 COPY . ./installer
 WORKDIR ./installer
 RUN rm -rf ./modoboa-installer 
